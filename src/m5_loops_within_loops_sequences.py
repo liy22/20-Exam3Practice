@@ -90,7 +90,6 @@ def integers(sequence_of_sequences):
         ]
     then this function returns:
         [3, 1, 4, 10, 10, 1, 3, 4, 30, -4]
-
     Type hints:
       :type sequence_of_sequences: (list|tuple) of (list|tuple|string)
       :rtype: list of int
@@ -119,7 +118,13 @@ def integers(sequence_of_sequences):
     #    DIFFICULTY:      6
     #    TIME ESTIMATE:  10 minutes.
     # -------------------------------------------------------------------------
+    ints = []
 
+    for k in range(len(sequence_of_sequences)):
+        for j in range(len(sequence_of_sequences[k])):
+            if type(sequence_of_sequences[k][j]) is int:
+                ints =ints+[sequence_of_sequences[k][j]]
+    return ints
 
 def run_test_big_letters():
     """ Tests the    big_letters    function. """
@@ -186,7 +191,6 @@ def big_letters(sequence_of_sequences):
          ]
     then this function returns:
         'OTSSSOOPSAPSBOSCOPDOO'
-
     Precondition:  the given argument is a sequence of sequences.
     """
     # -------------------------------------------------------------------------
@@ -211,7 +215,19 @@ def big_letters(sequence_of_sequences):
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:  12 minutes.
+    #for k in range (len(seq_of_seq)):
+        #for j in range (len(seq_of_seq[k])):
+            #if is_prime(seq_of_seq[k][j])==True and seq_of_seq[k][j]>n:
+                #return seq_of_seq[k][j]
+    #return -1
     # -------------------------------------------------------------------------
+    capitals = ''
+    for k in range(len(sequence_of_sequences)):
+        for j in range(len(sequence_of_sequences[k])):
+            if type(sequence_of_sequences[k]) is str and sequence_of_sequences[k][j].isupper():
+                capitals += sequence_of_sequences[k][j]
+    return capitals
+
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

@@ -121,16 +121,12 @@ def practice_problem4a(sequence):
          -- this function returns [2, 5]
               since 8 appears twice in a row starting at index 2
               and 4 appears twice in a row starting at index 5
-
       Given sequence (9, 9, 9, 9, 0, 9, 9, 9)
          -- this function returns [0, 1, 2, 5, 6]
-
       Given sequence (4, 5, 4, 5, 4, 5, 4)
          -- this function returns []
-
       Given sequence 'abbabbb'
          -- this function returns [1, 4, 5]
-
     Type hints:
       :type sequence: list | tuple | string
     """
@@ -142,7 +138,11 @@ def practice_problem4a(sequence):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 minutes.
     ###########################################################################
-
+    indices = []
+    for k in range(len(sequence) - 1):
+        if sequence[k] == sequence[k + 1]:
+            indices += [k]
+    return indices
 
 def run_test_practice_problem4b():
     """ Tests the    practice_problem4b    function. """
@@ -193,7 +193,6 @@ def practice_problem4b(sequence):
       then the largest of the numbers at EVEN indices is the largest of
            12      18     13     99      19        which is 99.
       So the function returns 99 in this example.
-
     Type hints:
       :type sequence: (list | tuple) of (float | int)
     """
@@ -205,7 +204,13 @@ def practice_problem4b(sequence):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 minutes.
     ###########################################################################
+    max_k = 0
 
+    for k in range(0, len(sequence), 2):
+        if sequence[k] > sequence[max_k]:
+            max_k = k
+
+    return sequence[max_k]
 
 def run_test_practice_problem4c():
     """ Tests the    practice_problem4c    function. """
@@ -307,6 +312,13 @@ def practice_problem4c(points):
     #    DIFFICULTY:      9
     #    TIME ESTIMATE:   15 minutes.
     ###########################################################################
+    for k in range(len(points)):
+        if is_prime(points[k].x) and is_prime(points[k].y):
+            hold = points[k].x
+            points[k].x = points[k].y
+            points[k].y = hold
+            return points[k]
+    return 'Not found'
 
 
 def run_test_practice_problem4d():
@@ -357,36 +369,29 @@ def practice_problem4d(sequence):
             because:
             6 (at index 0) is NOT prime - do NOT include 6 in the sum
             80 (at index 1) is NOT prime - do NOT include 80 in the sum
-
             17 (at index 2) IS prime AND the next item (13, at index 3)
               is a DIFFERENT prime - ** DO ** include 17 in the sum
-
             13 (at index 3) IS prime but the next item (40, at index 4)
               is NOT prime - do NOT include 13 in the sum
             40 (at index 4) is NOT prime - do NOT include 40 in the sum
             3 (at index 5) IS prime AND the next item (3, at index 6)
               IS prime but is NOT a DIFFERENT prime -
               do NOT include 3 in the sum
-
             3 (at index 6) IS prime AND the next item (7, at index 7)
               is a DIFFERENT prime - ** DO ** include 3 in the sum
             7 (at index 7) IS prime AND the next item (13, at index 8)
               is a DIFFERENT prime - ** DO ** include 7 in the sum
             13 (at index 8) IS prime AND the next item (7, at index 9)
               is a DIFFERENT prime - ** DO ** include 13 in the sum
-
             7 (at index 9) IS prime but the next item (12, at index 10)
               is NOT prime - do NOT include 7 in the sum
             12 (at index 10) is NOT prime - do NOT include 12 in the sum
             5 (at index 11) IS prime but there is NO item after it
                - do NOT include 5 in the sum
-
       Given sequence (7, 7, 7, 7, 7, 4, 4, 8, 5, 5, 6)
          -- this function returns 0
-
       Given sequence (2, 3, 5, 7, 5, 3, 2)
          -- this function returns 2 + 3 + 5 + 7 + 5 + 3, which is 25
-
     Type hints:
       :type sequence: (list | tuple) of int
       :rtype: int
@@ -398,8 +403,17 @@ def practice_problem4d(sequence):
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 minutes.
+    # total = 0
+    # for k in range(len(sequence) - 1):
+    # if is_prime(sequence[k]) and is_prime(sequence[k + 1]) and sequence[k] != sequence[k + 1]:
+    # total += sequence[k]
+    # return total
     ###########################################################################
-
+    total = 0
+    for k in range(len(sequence) - 1):
+        if is_prime(sequence[k]) and is_prime(sequence[k + 1]) and sequence[k] != sequence[k + 1]:
+            total += sequence[k]
+    return total
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

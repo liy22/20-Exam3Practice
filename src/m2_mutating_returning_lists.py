@@ -92,18 +92,16 @@ def doubler(list1, list2):
     and
       -- RETURNs a new list that is the same as list2 but with each
            number in the list doubled.
-
     For example, if the two arguments are:
        [10, -3, 20, 4]  and  [5, 0, 8]
     then this method MUTATEs the first argument to [20, -6, 40, 8]
     and RETURNs the list [10, 0, 16]
-
     Preconditions:
         :type list1: list of int
         :type list2: list of int
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
@@ -111,8 +109,26 @@ def doubler(list1, list2):
     #    DIFFICULTY:      4
     #    TIME ESTIMATE:   5 minutes.
     # -------------------------------------------------------------------------
+    for k in range(len(list1)):
+        list1[k] = 2 * list1[k]
+
+    list2_ans = []
+    for j in range(len(list2)):
+        list2_ans += [list2[j] * 2]
+    return list2_ans
+
+    #Fn2=0
+    #Fn1=1
+    #Fn=0
+    #while True:
+        #if Fn>=n-Fn2:
+            #break
+        #Fn=Fn1+Fn2
+        #Fn2=Fn1
+        #Fn1=Fn
 
 
+    #return Fn
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # -----------------------------------------------------------------------------

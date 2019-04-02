@@ -65,13 +65,11 @@ def shape(r):
         +++!321----
          ++!21-----
           +!1------
-
     Another example, where r=4:
     ++++!4321
      +++!321-
       ++!21--
        +!1---
-
     Preconditions:  r is a positive number.
     For purposes of "lining up", assume r is a single digit.
     """
@@ -87,8 +85,35 @@ def shape(r):
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:  15 minutes.
-    # -------------------------------------------------------------------------
+    #list=[]
+    #for k in range (len(seq_of_seq)):
+        #if len(seq_of_seq[k])!=0:
+            #max = seq_of_seq[k][0]
+            #for j in range (len(seq_of_seq[k])):
 
+
+                #if max<seq_of_seq[k][j]:
+                    #max=seq_of_seq[k][j]
+
+            #list.append(max)
+    #return list
+    # -------------------------------------------------------------------------
+    for k in range(r):
+        # Spaces
+        for j in range(k):
+            print(' ', end='')
+        # Pluses
+        for l in range(r - k):
+            print('+', end='')
+        # Exclamation
+        print('!', end='')
+        # Numbers
+        for i in range(r - k):
+            print(r - i, end='')
+        # Dashes
+        for p in range(k):
+            print('-', end='')
+        print()
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

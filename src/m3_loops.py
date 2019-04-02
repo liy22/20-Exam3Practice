@@ -151,7 +151,6 @@ def practice_problem3(start, n, threshold):
        practice_problem3(-2, 2, 1.3)  returns  [1, 7]
     as you can see if you work through this example using
     the numbers presented below. (Do so!)
-
     For these examples, the following (and more) numbers
     (each is rounded to 2 decimal places for the sake of brevity)
     are relevant:
@@ -174,7 +173,6 @@ def practice_problem3(start, n, threshold):
         11:  sin = -1.00,  cos =  0.00,  sum = -1.00
         12:  sin = -0.54,  cos =  0.84,  sum =  0.31
         13:  sin =  0.42,  cos =  0.91,  sum =  1.33
-
     So if start is -5 and threshold is 0.25 and:
        -- n is 3, then this function returns [-5, 0, 1]
              because sin(-5) + cos(-5) IS > 0.25 and
@@ -189,35 +187,47 @@ def practice_problem3(start, n, threshold):
        -- n is 5, then this function returns [-5, 0, 1, 2, 6]
        -- n is 6, then this function returns [-5, 0, 1, 2, 6, 7]
        -- n is 7, then this function returns [-5, 0, 1, 2, 6, 7, 8]
-
     while if start is -3 and the threshold is -1.0 and:
        -- n is 3, then this function returns [-1, 0, 1]
        -- n is 4, then this function returns [-1, 0, 1, 2]
        -- n is 5, then this function returns [-1, 0, 1, 2, 3]
        -- n is 6, then this function returns [-1, 0, 1, 2, 3, 5]
-
     and if n is 0 (regardless of what start is),
        this function returns []
-
     and if threshold is more than the square root of 2,
        this function returns (regardless of what start and n are):
           [start, start + 1, start + 2, ... start + n - 1].
-
     Type hints:
       :type start: int
       :type n:     int
       :type threshold: float
     """
     ###########################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Some tests are already written for you (above),
     #          but you are required to write ADDITIONAL tests (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   < 15 minutes.
-    ###########################################################################
+    #for k in range (n):
+        #for j in range (n-k):
+            #print(k+1,end='')
+        #print('*',end='')
+        #for h in range (1,k+1) :
+            #print(h,end='')
+        #print()
 
+    ###########################################################################
+    returned_list = []
+    ind = start
+    while True:
+        if math.sin(ind) + math.cos(ind) > threshold:
+            returned_list += [ind]
+        if len(returned_list) == n:
+            break
+        ind += 1
+    return returned_list
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
