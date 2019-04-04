@@ -224,9 +224,10 @@ def practice_problem3(start, n, threshold):
     while True:
         if math.sin(ind) + math.cos(ind) > threshold:
             returned_list += [ind]
+        ind += 1
         if len(returned_list) == n:
             break
-        ind += 1
+
     return returned_list
 
 # -----------------------------------------------------------------------------

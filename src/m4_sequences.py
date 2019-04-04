@@ -373,6 +373,7 @@ def practice_problem4d(sequence):
               is a DIFFERENT prime - ** DO ** include 17 in the sum
             13 (at index 3) IS prime but the next item (40, at index 4)
               is NOT prime - do NOT include 13 in the sum
+
             40 (at index 4) is NOT prime - do NOT include 40 in the sum
             3 (at index 5) IS prime AND the next item (3, at index 6)
               IS prime but is NOT a DIFFERENT prime -
